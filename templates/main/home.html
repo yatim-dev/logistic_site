@@ -5,6 +5,11 @@ HOME
 {% endblock %}
 
 {% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.string }}<br>
+        <button type="submit" class="btn btn-success">Найти</button>
+    </form>
     {% if orders %}
         {% for el in orders %}
             <div class="alert alert-warning mt-2">

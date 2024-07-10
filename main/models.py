@@ -11,7 +11,7 @@ class Order(models.Model):
     ]
 
     id = models.AutoField(primary_key=True)
-    uuid = models.CharField(max_length=22, unique=True, editable=False, default=shortuuid.uuid)
+    uuid = models.CharField(max_length=22, unique=True, default=shortuuid.uuid)
     start_city = models.CharField(max_length=255)
     end_city = models.CharField(max_length=255)
     current_city = models.CharField(max_length=255)
@@ -21,3 +21,10 @@ class Order(models.Model):
 
     def __str__(self):
         return f"Order {self.uuid}"
+
+
+class UserInput(models.Model):
+    string = models.CharField(max_length=22)
+
+    def __str__(self):
+        return self.string
