@@ -1,8 +1,7 @@
-import uuid
+import shortuuid
 from django.db import models
 
 
-# Create your models here.
 class Order(models.Model):
     STATUS_CHOICES = [
         ('created', 'Created'),
@@ -11,7 +10,8 @@ class Order(models.Model):
         ('issued', 'Issued'),
     ]
 
-    uuid = models.UUIDField(primary_key=True, unique=True, editable=False, default=uuid.uuid4)
+    id = models.AutoField(primary_key=True)
+    uuid = models.CharField(max_length=22, unique=True, editable=False, default=shortuuid.uuid)
     start_city = models.CharField(max_length=255)
     end_city = models.CharField(max_length=255)
     current_city = models.CharField(max_length=255)
