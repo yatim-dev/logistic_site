@@ -5,5 +5,12 @@ HOME
 {% endblock %}
 
 {% block content %}
-    <h1>HOME</h1>
+    {% if orders %}
+        {% for el in orders %}
+            <div class="alert alert-warning mt-2">
+                <h3>Заказ {{ el.uuid }}</h3>
+                <p>{{ el.status }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
 {% endblock %}
