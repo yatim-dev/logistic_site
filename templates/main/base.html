@@ -24,6 +24,42 @@
         .content {
             flex: 1;
         }
+        
+        ul.messages {
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        .message {
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            color: white;
+        }
+    
+        .message.success {
+            background-color: #4CAF50; /* Green */
+        }
+    
+        
+         .close {
+            position: relative;
+            top: 50%;
+            transform: translate(25%, 25%); 
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1;
+            opacity: .5;
+            padding: 0;
+            cursor: pointer;
+            filter: alpha(opacity=50);
+        }
+        
+        .close:hover {
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
     </style>
 </head>
 <body>
