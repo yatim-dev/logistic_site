@@ -1,11 +1,12 @@
 {% extends 'main/base.html' %}
 
 {% block title %}
-SUPPORT
+Поддержка
 {% endblock %}
 
 {% block content %}
-    <h1>Тех поддержка</h1>
+    <h1>Поддержка</h1>
+    <p>Если хотите обратиться по вопросу заказа, то не забудьте добавить его ID</p>
     <form method="post">
         {% csrf_token %}
         {{ form.email }}<br>
