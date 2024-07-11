@@ -1,5 +1,3 @@
-from email import message
-
 from .models import UserInput, Support
 from django.forms import ModelForm, TextInput, Textarea
 

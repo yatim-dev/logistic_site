@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from validate_email import validate_email
 from .forms import UserInputForm, SupportForm
 from .models import Order
