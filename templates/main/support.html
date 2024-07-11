@@ -6,4 +6,16 @@ SUPPORT
 
 {% block content %}
     <h1>Тех поддержка</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.email }}<br>
+        {{ form.title }}<br>
+        {{ form.message }}<br>
+        <button type="submit" class="btn btn-success">Отправить</button>
+    </form>
+    {% if error_message %}
+        <div class="alert alert-danger mt-2">
+            {{ error_message }}
+        </div>
+    {% endif %}
 {% endblock %}

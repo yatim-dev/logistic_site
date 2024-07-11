@@ -1,22 +1,22 @@
-from django.shortcuts import render
-
-from .forms import UserInputForm
+from django.shortcuts import render, redirect
+from validate_email import validate_email
+from .forms import UserInputForm, SupportForm
 from .models import Order
 
 
 def home(request):
     orders = []
-    message = ''
+    error_message = ''
     if request.method == 'POST':
         order_id = request.POST.get('string')
         orders = Order.objects.filter(uuid=order_id)
         if len(orders) == 0:
-            message = 'Предупреждение: Заказ не найден!'
+            error_message = 'Предупреждение: Заказ не найден!'
 
     context = {
         'form': UserInputForm(),
         'orders': orders,
-        'message': message
+        'error_message': error_message
     }
     return render(request, "main/home.html", context)
 
@@ -27,4 +27,19 @@ def about(request):
 
 
 def support(request):
-    return render(request, "main/support.html")
+    error_message = ''
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        title = request.POST.get('title')
+        message = request.POST.get('message')
+        if validate_email(email):
+            print(email, title, message)
+            return redirect('home')
+        else:
+            error_message = 'Предупреждение: неверно указана почта'
+
+    content = {
+        'form': SupportForm(),
+        'error_message': error_message
+    }
+    return render(request, "main/support.html", content)

@@ -10,9 +10,9 @@ HOME
         {{ form.string }}<br>
         <button type="submit" class="btn btn-success">Найти</button>
     </form>
-    {% if message %}
+    {% if error_message %}
         <div class="alert alert-danger mt-2">
-            {{ message }}
+            {{ error_message }}
         </div>
     {% endif %}
     {% if orders %}
