@@ -17,11 +17,15 @@ class UserInputForm(ModelForm):
 class SupportForm(ModelForm):
     class Meta:
         model = Support
-        fields = ["email", "title", "message"]
+        fields = ["email", "order_id","title", "message"]
         widgets = {
             "email": TextInput(attrs={
                 "class": "form-control",
-                "placeholder": "Введите id заказа"
+                "placeholder": "Введите вашу почту"
+            }),
+            "order_id": TextInput(attrs={
+               "class": "form-control",
+               "placeholder": "Введите id заказа"
             }),
             "title": TextInput(attrs={
                 "class": "form-control",

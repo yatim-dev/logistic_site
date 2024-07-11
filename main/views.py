@@ -30,10 +30,11 @@ def support(request):
     error_message = ''
     if request.method == 'POST':
         email = request.POST.get('email')
+        order_id = request.POST.get('order_id')
         title = request.POST.get('title')
         message = request.POST.get('message')
         if validate_email(email):
-            print(email, title, message)
+            print(email, order_id, title, message)
             messages.success(request, 'Сообщение доставлено')
         else:
             error_message = 'Предупреждение: неверно указана почта'

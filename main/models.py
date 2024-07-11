@@ -31,8 +31,9 @@ class UserInput(models.Model):
 
 
 class Support(models.Model):
-    email = models.CharField(max_length=22)
-    title = models.CharField(max_length=22)
+    email = models.CharField(max_length=50)
+    order_id = models.CharField(max_length=22)
+    title = models.CharField(max_length=255)
     message = models.TextField()
 
     def __str__(self):

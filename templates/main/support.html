@@ -10,6 +10,7 @@
     <form method="post">
         {% csrf_token %}
         {{ form.email }}<br>
+        {{ form.order_id }}<br>
         {{ form.title }}<br>
         {{ form.message }}<br>
         <button type="submit" class="btn btn-success">Отправить</button>
