@@ -35,7 +35,7 @@ def support(request):
         message = request.POST.get('message')
         if validate_email(email):
             print(email, order_id, title, message)
-            messages.success(request, 'Сообщение доставлено')
+            messages.success(request, 'Сообщение отправлено')
         else:
             error_message = 'Предупреждение: неверно указана почта'
 
