@@ -5,6 +5,7 @@ HOME
 {% endblock %}
 
 {% block content %}
+    <h1>Порверьте ваш заказ</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.string }}<br>
