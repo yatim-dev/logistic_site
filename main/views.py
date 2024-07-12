@@ -1,3 +1,4 @@
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render
 from validate_email import validate_email
 from .forms import UserInputForm, SupportForm
@@ -34,8 +35,12 @@ def support(request):
         title = request.POST.get('title')
         message = request.POST.get('message')
         if validate_email(email):
-            print(email, order_id, title, message)
-            messages.success(request, 'Сообщение отправлено')
+            try:
+                order = Order.objects.get(user_email=email)
+                print(email, order_id, title, message)
+                messages.success(request, 'Сообщение отправлено')
+            except ObjectDoesNotExist:
+                error_message = 'Предупреждение: на данную почту нет заказа'
         else:
             error_message = 'Предупреждение: неверно указана почта'
 
