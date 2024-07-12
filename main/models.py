@@ -12,6 +12,7 @@ class Order(models.Model):
 
     id = models.AutoField(primary_key=True)
     uuid = models.CharField(max_length=22, unique=True, default=shortuuid.uuid)
+    user_email = models.EmailField(max_length=254)
     start_city = models.CharField(max_length=255)
     end_city = models.CharField(max_length=255)
     current_city = models.CharField(max_length=255)

@@ -20,6 +20,7 @@
         {% for el in orders %}
             <div class="alert alert-warning mt-2">
                 <h3>Заказ {{ el.uuid }}</h3>
+                <p>Ваша почта: {{ el.user_email }}</p>
                 <p>Посылка отправляется из города: {{ el.start_city }} в город {{ el.end_city }}</p>
                 <p>Текущее местоположение: {{ el.current_city }}</p>
                 <p>Дата создания заказа: {{ el.create_date }}</p>
