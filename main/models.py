@@ -4,10 +4,10 @@ from django.db import models
 
 class Order(models.Model):
     STATUS_CHOICES = [
-        ('created', 'Created'),
-        ('on_way', 'On Way'),
-        ('delivered', 'Delivered'),
-        ('issued', 'Issued'),
+        ('Создан', 'Created'),
+        ('В пути', 'On Way'),
+        ('Доставлен', 'Delivered'),
+        ('Выдан', 'Issued'),
     ]
 
     id = models.AutoField(primary_key=True)
